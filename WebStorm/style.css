@@ -1,0 +1,401 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    background-color: white;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+:root {
+    --bg: rgba(0, 0, 0, 0);
+    --clr: #ffffff;
+}
+
+ul {
+    position: relative;
+    display: flex;
+    background-image: url('images/11.png'); /* Укажите путь к вашему изображению */
+    background-position: left; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Не повторяем изображение */
+    padding: 0; /* Добавьте отступы, если необходимо */
+    width: 100%;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+li {
+    position: relative;
+    list-style: none;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    box-shadow:
+            0 0 0 5px var(--clr),
+            0 0 0 5px var(--clr),
+            0 0 0 5px var(--clr);
+    transition: 0.5s;
+    opacity: 0; /* Начальное состояние - невидимо */
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+li:hover::before {
+    inset: 15px;
+    opacity: 1; /* Появляется при наведении */
+}
+
+li:hover::after {
+    inset: 0;
+    transform: rotate(0deg);
+}
+
+li:hover a img {
+    transform: translateY(-10%);
+}
+
+a {
+    position: relative;
+    z-index: 10;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a img {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+li:hover a img {
+    filter:
+            drop-shadow(0 0 20px var(--clr))
+            drop-shadow(0 0 40px var(--clr))
+            drop-shadow(0 0 60px var(--clr));
+}
+
+
+.search-box {
+    position: relative;
+    top: 25px; /* Отступ от шапки */
+    width: 60px;
+    height: 60px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+
+.search-box.active {
+    width: 350px;
+}
+
+input {
+    color: white;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: #00bd51;
+    font-size: 18px;
+    border-radius: 50px;
+    padding: 0 60px 0 20px;
+    outline: none;
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.search-box input .active {
+    opacity: 1;
+}
+
+.search-box .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color: #f3e47b;
+    background: #00bd51;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color: #00bd51;
+    background: #fff184;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .cancel-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #00bd51;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active .cancel-btn{
+    right: -40px;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+
+.burger-menu_button {
+    position: fixed;
+    top: 120px;
+    left: 10px;
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    transition: 0.4s;
+}
+
+.burger-menu_lines,
+.burger-menu_lines::after,
+.burger-menu_lines::before {
+    position: absolute;
+    width: 40px;
+    height: 5px;
+    background-color: #00bd51;
+}
+
+.burger-menu_lines {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.burger-menu_lines::before {
+    content: '';
+    top: -12px;
+}
+
+.burger-menu_lines::after {
+    content: '';
+    top: 12px;
+}
+
+.burger-menu_button:hover .burger-menu_lines {
+    filter: brightness(0.7);
+}
+
+.burger-menu_active .burger-menu_button,
+.burger-menu_active .burger-menu_lines {
+    background-color: transparent;
+}
+
+.burger-menu_active .burger-menu_lines::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.burger-menu_active .burger-menu_lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.burger-menu_nav {
+    top: 100px;
+    padding-top: 80px;
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    background-color: white;
+    overflow-y: auto;
+    left: -100%;
+    transition: 0.5s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.burger-menu_active .burger-menu_nav {
+    left: 0;
+}
+
+.burger-menu_link {
+    padding: 30px;
+    font-family: Roboto, serif;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bold;
+    color: #00bd51;
+}
+
+.burger-menu_link:hover {
+    filter: brightness(0.7);
+}
+
+.burger-menu_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.burger-menu_active .burger-menu_overlay {
+    display: block;
+}
+
+.filter_button {
+    position: fixed;
+    top: 133px; /* Выравнивание с полем поиска */
+    right: 50px;
+    z-index: 30;
+    width: 120px; /* Увеличиваем ширину для лучшего восприятия */
+    height: 50px; /* Увеличиваем высоту для лучшего восприятия */
+    border-radius: 5px; /* Скругляем углы */
+    color: #ffffff; /* Цвет текста */
+    background: #00bd51; /* Основной цвет фона */
+    border: none; /* Убираем рамку */
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 18px; /* Размер шрифта */
+    font-weight: 500; /* Увеличиваем жирность шрифта */
+    transition: background 0.3s, transform 0.3s; /* Плавный переход для фона и трансформации */
+}
+
+.filter_button:hover {
+    background: #009a41; /* Цвет фона при наведении */
+    transform: translateY(-2px); /* Легкий подъем при наведении */
+}
+
+.filter_button:active {
+    transform: translateY(1px); /* Эффект нажатия */
+}
+
+.filter {
+    position: fixed;
+    top: 100px; /* Положение от верхней части экрана */
+    padding-top: 80px;
+    z-index: 30;
+    display: flex;
+    flex-flow: column;
+    width: 200px;
+    height: 100%; /* Установите максимальную высоту, если необходимо */
+    background-color: white;
+    overflow-y: auto; /* Позволяет прокручивать содержимое, если оно превышает max-height */
+    right: -100%; /* Скрываем меню за пределами экрана */
+    transition: right 0.5s; /* Переход для свойства right */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter_active {
+    right: 0; /* Показываем меню, когда добавлен класс filter_active */
+}
+
+.filter_overlay {
+    display: none; /* Скрываем оверлей по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15; /* Убедитесь, что z-index меньше, чем у чекбоксов */
+}
+
+.filter_active .filter_overlay {
+    display: block; /* Показываем оверлей при активации */
+    pointer-events: auto; /* Позволяет взаимодействовать с оверлеем */
+}
+
+.filter_overlay .filter_cancel-btn {
+    position: fixed;
+    top: 130px;
+    right: 90px;
+    color: #00bd51;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #efefef; /* Цвет фона подвала */
+    color: #afafaf; /* Цвет текста */
+    text-align: center; /* Центрирование текста */
+    padding: 15px 0; /* Отступы сверху и снизу */
+    margin-top: 607px; /* Отталкивает подвал вниз */
+    width: 100%; /* Ширина 100% */
+}
+
+.footer-content {
+    max-width: 100%; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контента */
+}
+
+.checkbox {
+    display: flex;
+    text-align: center;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    position: relative; /* Убедитесь, что чекбоксы находятся в правильном контексте */
+    z-index: 20; /* Убедитесь, что z-index больше, чем у оверлея */
+}
+
+.checkbox-item {
+    margin-bottom: 30px; /* Отступ между чекбоксами */
+}
+
+.checkbox-item label {
+    display: flex;
+    flex-direction: column; /* Текст над чекбоксом */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.checkbox-item input {
+    margin-top: 5px; /* Отступ между текстом и чекбоксом */
+}
