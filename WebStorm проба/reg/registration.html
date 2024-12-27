@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авторизация</title>
+  <link rel="stylesheet" href="stylization.css">
+  <script src="https://kit.fontawesome.com/3d0e27e432.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form id="login-form">
+        <h1 id="login-title">Вход</h1>
+
+        <div class="inputbox">
+          <label for="login-name">Имя</label>
+          <input type="text" id="login-name" required placeholder=" ">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" required placeholder=" ">
+          <ion-icon name="mail-outline"></ion-icon>
+        </div>
+
+        <div class="inputbox">
+          <label for="login-password">Пароль</label>
+          <input type="password" id="login-password" required placeholder=" ">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </div>
+
+        <button type="submit" id="login-submit">Войти</button>
+      </form> <!-- Закрывающий тег формы был добавлен здесь -->
+    </div>
+  </div>
+</section>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

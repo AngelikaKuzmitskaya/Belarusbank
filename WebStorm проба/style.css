@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    background-color: white;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+:root {
+    --bg: rgba(0, 0, 0, 0);
+    --clr: #ffffff;
+}
+
+ul {
+    position: relative;
+    display: flex;
+    background-image: url('images/11.png'); /* Укажите путь к вашему изображению */
+    background-position: left; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Не повторяем изображение */
+    padding: 0; /* Добавьте отступы, если необходимо */
+    width: 100%;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+li {
+    position: relative;
+    list-style: none;
+    display: flex;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+li::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    box-shadow:
+            0 0 0 5px var(--clr),
+            0 0 0 5px var(--clr),
+            0 0 0 5px var(--clr);
+    transition: 0.5s;
+    opacity: 0; /* Начальное состояние - невидимо */
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+li:hover::before {
+    inset: 15px;
+    opacity: 1; /* Появляется при наведении */
+}
+
+li:hover::after {
+    inset: 0;
+    transform: rotate(0deg);
+}
+
+li:hover a img {
+    transform: translateY(-10%);
+}
+
+a {
+    position: relative;
+    z-index: 10;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a img {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+li:hover a img {
+    filter:
+            drop-shadow(0 0 20px var(--clr))
+            drop-shadow(0 0 40px var(--clr))
+            drop-shadow(0 0 60px var(--clr));
+}
+
+.square {
+    position: absolute;
+    margin: 0;
+    background-color: #f3e47b;
+    height: 394px;
+    width: 1080px; /* Установите ширину в процентах */
+    max-width: 1086px; /* Максимальная ширина */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.search-box {
+    position: relative;
+    top: 25px; /* Отступ от шапки */
+    width: 60px;
+    height: 60px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+
+.search-box.active {
+    width: 350px;
+}
+
+input {
+    color: white;
+}
+
+.search-box input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: #00bd51;
+    font-size: 18px;
+    border-radius: 50px;
+    padding: 0 60px 0 20px;
+    outline: none;
+    opacity: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.search-box input .active {
+    opacity: 1;
+}
+
+.search-box .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color: #f3e47b;
+    background: #00bd51;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active .search-btn {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    color: #00bd51;
+    background: #fff184;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.search-box .cancel-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: #00bd51;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box.active .cancel-btn{
+    right: -40px;
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.registration-button {
+
+    margin: 20px; /* Отступ вокруг кнопки */
+
+}
+
+.registration-button a {
+    display: inline-block; /* Позволяет задать размеры */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #00bd51; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    text-decoration: none; /* Убирает подчеркивание */
+    border-radius: 25px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.registration-button a:hover {
+    background-color: #009e45; /* Цвет фона при наведении */
+}
+
+footer {
+    background-color: #efefef; /* Цвет фона подвала */
+    color: #afafaf; /* Цвет текста */
+    text-align: center; /* Центрирование текста */
+    padding: 15px 0; /* Отступы сверху и снизу */
+    margin-top: 471px; /* Отталкивает подвал вниз */
+    width: 100%; /* Ширина 100% */
+}
+
+.footer-content {
+    max-width: 100%; /* Максимальная ширина контента */
+    margin: 0 auto; /* Центрирование контента */
+}
+
+.checkbox {
+    display: flex;
+    text-align: center;
+    flex-direction: column; /* Вертикальное расположение элементов */
+    position: relative; /* Убедитесь, что чекбоксы находятся в правильном контексте */
+    z-index: 20; /* Убедитесь, что z-index больше, чем у оверлея */
+}
+
+.checkbox-item {
+    margin-bottom: 30px; /* Отступ между чекбоксами */
+}
+
+.checkbox-item label {
+    display: flex;
+    flex-direction: column; /* Текст над чекбоксом */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.checkbox-item input {
+    margin-top: 5px; /* Отступ между текстом и чекбоксом */
+}
